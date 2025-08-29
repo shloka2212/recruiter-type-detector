@@ -1,0 +1,128 @@
+/* Page gradient background */
+body, .page {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+}
+
+/* Main container for input */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Textarea styling with padding inside container */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 16px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Result box separate from main container */
+.result-box {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+  border-left: 5px solid #007bff;
+}
+
+/* Colored status badges */
+.status.fake {
+  color: white;
+  background-color: #e74c3c;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.status.real {
+  color: white;
+  background-color: #2ecc71;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading dots animation */
+.loading-dots span {
+  display: inline-block;
+  animation: blink 1.4s infinite;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Colored status badges */
+.status.consulting {
+  color: white;
+  background-color: #e74c3c; /* red */
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.status.real {
+  color: white;
+  background-color: #2ecc71; /* green */
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
