@@ -1,0 +1,1 @@
+# Recruiter Type Detector
