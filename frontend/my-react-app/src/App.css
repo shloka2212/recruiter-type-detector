@@ -1,90 +1,177 @@
-/* Page gradient background */
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lato:wght@400;700&display=swap');
+
+/* --- CSS Variables for Easy Theming --- */
+:root {
+  --primary-color: #3B82F6; /* A more modern blue */
+  --primary-hover-color: #2563EB;
+  --text-dark: #1F2937;
+  --text-light: #4B5563;
+  --bg-gradient-start: #f0f4f8;
+  --bg-gradient-end: #d9e2ec;
+  --card-bg: #ffffff;
+  --border-color: #D1D5DB;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+/* --- General Page Styles --- */
 body, .page {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   min-height: 100vh;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Main container for input */
+/* --- Header & Footer --- */
+.app-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; /* Pushes footer to the bottom */
+  font-size: 0.9em;
+}
+
+.app-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Main Content Card --- */
 .container {
   max-width: 700px;
-  margin: 40px auto;
-  padding: 25px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+  width: 90%;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 16px; /* Softer corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
 }
 
 h1 {
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  color: #333;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2.25rem;
 }
 
-/* Textarea styling with padding inside container */
+.tagline {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+/* --- Form Elements --- */
 textarea {
   width: 100%;
-  height: 150px;
+  height: 180px;
   padding: 16px;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
   resize: vertical;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-
-.center-container {
+/* --- Button Styles --- */
+.button-container {
   display: flex;
   justify-content: center;
+  gap: 16px; /* Adds space between buttons */
 }
 
-/* Result box separate from main container */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button (Analyze) */
+.button-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Secondary Button (Clear) */
+.button-secondary {
+  background-color: #E5E7EB;
+  color: var(--text-dark);
+}
+
+.button-secondary:hover {
+  background-color: #D1D5DB;
+}
+
+/* --- Result Box & Status Badges --- */
 .result-box {
   max-width: 700px;
+  width: 90%;
   margin: 30px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
-  border-left: 5px solid #007bff;
+  padding: 25px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--primary-color);
 }
 
-/* Colored status badges */
-.status.fake {
+.status {
+  display: inline-block;
   color: white;
-  background-color: #e74c3c;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 9999px; /* Pill shape */
+  font-weight: 700;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.status.consulting {
+  background-color: var(--error-color);
 }
 
 .status.real {
-  color: white;
-  background-color: #2ecc71;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-weight: bold;
+  background-color: var(--success-color);
 }
 
-/* Fade-in animation */
+/* --- Animations (Unchanged) --- */
 .fade-in {
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -94,7 +181,6 @@ button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Loading dots animation */
 .loading-dots span {
   display: inline-block;
   animation: blink 1.4s infinite;
@@ -110,19 +196,70 @@ button:hover {
   100% { opacity: 0; }
 }
 
-/* Colored status badges */
-.status.consulting {
-  color: white;
-  background-color: #e74c3c; /* red */
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-weight: bold;
+/* --- Add this to the end of App.css --- */
+
+/* --- Result Card Enhancements --- */
+.result-box.error {
+  border-left-color: var(--error-color);
 }
 
-.status.real {
-  color: white;
-  background-color: #2ecc71; /* green */
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-weight: bold;
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-header h3, .result-section h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.result-section {
+  margin-top: 20px;
+}
+
+.result-section ul {
+  padding-left: 20px;
+  margin-top: 8px;
+  list-style-type: disc;
+}
+
+.result-section li {
+  margin-bottom: 8px;
+}
+
+/* --- Skeleton Loading Styles --- */
+.skeleton {
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton-title {
+  width: 40%;
+  height: 28px;
+  margin-bottom: 20px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 12px;
+}
+
+.skeleton-text.short {
+  width: 60%;
 }
