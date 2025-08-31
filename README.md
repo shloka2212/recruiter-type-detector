@@ -1,6 +1,5 @@
 # Recruiter Type Detector 🕵️‍♂️
 
-![Recruiter Type Detector Screenshot](./path-to-your-screenshot.jpg)
 A web application that uses a machine learning model to analyze job descriptions and classify them as being from a direct employer (**Real**) or a third-party staffing agency (**Consulting**).
 
 ---
